@@ -2,6 +2,7 @@
   "name": "imba-elysia-eden",
   "type": "module",
   "scripts": {
+    "srv": "bun run --watch src/server.ts",
     "dev": "imba serve",
     "build": "imba build",
     "preview": "imba preview"
@@ -11,6 +12,8 @@
     "vite": "*"
   },
   "dependencies": {
+    "@elysiajs/cors": "^1.0.2",
+    "@elysiajs/swagger": "^1.0.5",
     "elysia": "^1.0.21"
   }
 }

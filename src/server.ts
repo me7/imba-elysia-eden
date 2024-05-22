@@ -1,4 +1,6 @@
 import { Elysia, t } from "elysia"
+import swagger from "@elysiajs/swagger"
+import cors from '@elysiajs/cors'
 
 function random() {
   return randBetween(0, 1)
@@ -13,6 +15,8 @@ function randBetween(min, max: number) {
 }
 
 const app = new Elysia()
+  .use(cors())
+  .use(swagger())
   .get('/', { msg: 'hello' })
   .get('/random', random)
   .get('/rand-between', ({ query }) => randBetween(+query.min, +query.max), {

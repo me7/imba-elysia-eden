@@ -8,5 +8,5 @@ test end to end type safety between frontend (https://imba.io) and backend (http
 
 ## how do i
 
-- [x] server using elysiajs (get/random get/rand-to get/rand-between)
+- [x] server using elysiajs (get/random get/rand-to get/rand-between) (ref)(https://elysiajs.com/validation/schema-type.html#example-1)
 - [ ] import type and use in imba
