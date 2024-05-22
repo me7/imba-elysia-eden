@@ -1,0 +1,13 @@
+{
+  "name": "imba-elysia-eden",
+  "type": "module",
+  "scripts": {
+    "dev": "imba serve",
+    "build": "imba build",
+    "preview": "imba preview"
+  },
+  "devDependencies": {
+    "imba": "*",
+    "vite": "*"
+  }
+}
