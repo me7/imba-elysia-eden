@@ -9,5 +9,8 @@
   "devDependencies": {
     "imba": "*",
     "vite": "*"
+  },
+  "dependencies": {
+    "elysia": "^1.0.21"
   }
 }
