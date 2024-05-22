@@ -19,17 +19,20 @@ const app = new Elysia()
   .use(swagger())
   .get('/', { msg: 'hello' })
   .get('/random', random)
-  .get('/rand-between', ({ query }) => randBetween(+query.min, +query.max), {
+  .get('/randBetween', ({ query }) => randBetween(+query.min, +query.max), {
     query: t.Object({
       min: t.Numeric(),
       max: t.Numeric()
     })
   })
-  .get('/rand-to/:max', ({ params }) => randTo(+params.max), {
-    params: t.Object({
-      max: t.Numeric()
-    })
-  })
-  .listen(3000)
+  // .get('/randTo/:max', ({ params }) => randTo(+params.max), {
+  //   params: t.Object({
+  //     max: t.Numeric()
+  //   })
+  // })
+  .get('/randTo/:max', ({ params }) => randTo(+params.max))
+  .listen(4000)
 
-console.log('http://localhost:3000')
+console.log('elysia 🦊 on http://localhost:4000')
+
+export type App = typeof app

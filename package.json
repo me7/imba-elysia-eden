@@ -2,17 +2,18 @@
   "name": "imba-elysia-eden",
   "type": "module",
   "scripts": {
-    "srv": "bun run --watch src/server.ts",
-    "dev": "imba serve",
+    "dev": "concurrently \"imba serve\" \"bun run --watch src/server.ts\"",
     "build": "imba build",
     "preview": "imba preview"
   },
   "devDependencies": {
+    "concurrently": "^8.2.2",
     "imba": "*",
     "vite": "*"
   },
   "dependencies": {
     "@elysiajs/cors": "^1.0.2",
+    "@elysiajs/eden": "^1.0.13",
     "@elysiajs/swagger": "^1.0.5",
     "elysia": "^1.0.21"
   }

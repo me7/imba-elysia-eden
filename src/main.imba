@@ -1,12 +1,25 @@
-global css body c:warm2 bg:warm8 ff:Arial inset:0 d:vcc
+import {treaty} from '@elysiajs/eden'
+import type { App } from './server'
+const api = treaty<App>('localhost:4000')
 
-tag App
-	count = 0
-	<self>
-		<%counter @click=count++>
-			css e:250ms us:none py:3 px:5 rd:4 bg:gray9 d:hcc g:1
-				bd:1px solid transparent @hover:indigo5
-			<img[s:20px] src="https://imba.io/logo.svg">
-			"count is {count}"
+def get-count
+	let {data, err} = await api.random.get()
+	return data
 
-imba.mount <App>
+def get-rand-to max
+	let {data, err} = await api.randTo({max:max})
+	return data
+
+def get-rand-between min, max
+	let {data, err} = await api.randBetween.get(query:{min:min, max:max})
+	return data
+
+tag Main
+	count
+	<self [d:vflex g:1]>
+			<button @click=(count = await get-count!)> "GET RANDOM"
+			<button @click=(count = await get-rand-to(30)) > "GET RAND-To-30"
+			<button @click=(count = await get-rand-between(10, 100)) > "GET RAND-BETWEEN-10 to 100"
+			<div> "count is {JSON.stringify(count)}"
+
+imba.mount <Main>
